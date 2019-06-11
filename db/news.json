@@ -1,0 +1,20 @@
+{
+  "news1": {
+    "title": "title1",
+    "imageUrl": "image1",
+    "synopsis": "synopsis1",
+    "uid": "jVjZ5Kl7N6OnVkn6hnke7KlJiCm1"
+  },
+  "news2": {
+    "title": "title2",
+    "imageUrl": "image2",
+    "synopsis": "synopsis2",
+    "uid": "jVjZ5Kl7N6OnVkn6hnke7KlJiCm1"
+  },
+  "news3": {
+    "title": "title3",
+    "imageUrl": "image3",
+    "synopsis": "synopsis3",
+    "uid": "jVjZ5Kl7N6OnVkn6hnke7KlJiCm1"
+  }
+}
