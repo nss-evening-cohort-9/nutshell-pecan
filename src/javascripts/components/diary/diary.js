@@ -1,21 +1,22 @@
-import axios from 'axios';
-import apiKeys from '../../helpers/apiKeys.json';
+import diaryData from '../../helpers/data/diaryData';
+import util from '../../helpers/util';
 
-const firebaseUrl = apiKeys.firebaseKeys.databaseURL;
+const displayDiary = (diary) => {
+  let domString = '';
+  diary.forEach((entry) => {
+    domString += '<div class="card">';
+    domString += `<div>${entry.title}</div>`;
+    domString += '</div>';
+  });
+  util.printToDom('diary-div', domString);
+};
 
-const getDiaryByUid = uid => new Promise((resolve, reject) => {
-  axios.get(`${firebaseUrl}/diary.json=${uid}`)
-    .then((results) => {
-      const diaryData = results;
-      const diaryArray = [];
-      Object.keys(diaryData).forEach((diaryId) => {
-        diaryData[diaryId].id = diaryId;
-        diaryArray.pop(diaryData[diaryId]);
-      });
-      resolve(diaryArray);
-      console.error(diaryArray);
+const showWholeDiary = () => {
+  diaryData.getDiaryByUid()
+    .then((diary) => {
+      displayDiary(diary);
     })
-    .catch(err => reject(err));
-});
+    .catch(err => console.error('diary problem', err));
+};
 
-export default { getDiaryByUid };
+export default { showWholeDiary };
