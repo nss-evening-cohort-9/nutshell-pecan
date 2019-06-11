@@ -1,0 +1,23 @@
+{
+  "Entry1": {
+    "date": "06-01-2019",
+    "title": "Road Trip",
+    "entry": "Got in the car and drove.",
+    "imageUrl": "https://farm1.staticflickr.com/869/41330360791_a53e6f5b33_b.jpg",
+    "uid": "wWhjxaixIwcoEOl8HL8LkO1Jv7b2"
+  },
+  "Entry2": {
+    "date": "06-03-2019",
+    "title": "Went to the Beach",
+    "entry": "Went swimming in the ocean.",
+    "imageUrl": "https://live.staticflickr.com/7031/6503945357_e757920d02_b.jpg",
+    "uid": "wWhjxaixIwcoEOl8HL8LkO1Jv7b2"
+  },
+  "Entry3": {
+    "date": "06-05-2019",
+    "title": "Hiking",
+    "entry": "Followed a trail.",
+    "imageUrl": "https://s0.geograph.org.uk/geophotos/05/86/61/5866136_8a28dedc.jpg",
+    "uid": "wWhjxaixIwcoEOl8HL8LkO1Jv7b2"
+  }
+}
