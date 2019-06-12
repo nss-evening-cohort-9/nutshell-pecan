@@ -1,14 +1,50 @@
+import './diary.scss';
+import 'bootstrap';
+import firebase from 'firebase/app';
 import diaryData from '../../helpers/data/diaryData';
 import util from '../../helpers/util';
+
+const createNewEntry = (e) => {
+  e.preventDefault();
+  const newDiary = {
+    date: document.getElementById('entry-date'),
+    title: document.getElementById('entry-title'),
+    entry: document.getElementById('diary-text'),
+    imageUrl: document.getElementById('diary-image'),
+    uid: firebase.auth().currentUser.uid,
+  };
+  diaryData.addNewEntry(newDiary)
+    .then(() => {
+      document.getElementById('entry-date').value = '';
+      document.getElementById('entry-title').value = '';
+      document.getElementById('diary-text').value = '';
+      document.getElementById('diary-image').value = '';
+    })
+    .catch(err => console.error('no added entry', err));
+};
+
+const newEntryButton = () => {
+  document.getElementById('post-new-diary').addEventListener('click', createNewEntry);
+};
 
 const displayDiary = (diary) => {
   let domString = '';
   diary.forEach((entry) => {
     domString += '<div class="card">';
-    domString += `<div>${entry.title}</div>`;
+    domString += `<h3 class="card-header">${entry.title}</h3>`;
+    domString += '<div class="card-body">';
+    domString += `<h5 class="card-subtitle" text-muted>${entry.date}</h5>`;
+    domString += `<img id="diary-pic" src=${entry.imageUrl}>`;
+    domString += `<div>${entry.entry}</div>`;
+    domString += '<div>';
+    domString += '<button id="diary-edit">Edit</button>';
+    domString += '<button id="diary-delete">Delete</button>';
+    domString += '</div>';
+    domString += '</div>';
     domString += '</div>';
   });
-  util.printToDom('diary-div', domString);
+  util.printToDom('diary-entries', domString);
+  newEntryButton();
 };
 
 const showWholeDiary = () => {

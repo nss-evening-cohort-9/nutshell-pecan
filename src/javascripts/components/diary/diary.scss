@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/bootstrap";
+
+.diary-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#diary-pic {
+  height: 50px;
+  width: 50px;
+}

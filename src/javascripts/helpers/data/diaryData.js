@@ -18,4 +18,6 @@ const getDiaryByUid = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
-export default { getDiaryByUid };
+const addNewEntry = diaryObject => axios.post(`${firebaseUrl}/diary.json`, diaryObject);
+
+export default { getDiaryByUid, addNewEntry };
