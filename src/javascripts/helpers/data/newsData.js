@@ -8,14 +8,14 @@ const getNewsByUid = () => new Promise((resolve, reject) => {
     .then((results) => {
       // console.error(`${firebaseUrl}/news.json?orderBy="uid"&equalTo="${uid}"`);
       const newsResults = results.data;
-      console.error(results);
       const news = [];
+      console.error(newsResults);
       Object.keys(newsResults).forEach((newsId) => {
         newsResults[newsId].id = newsId;
         news.push(newsResults[newsId]);
       });
-      // console.error(birthdays);
-      resolve(news[0]);
+      console.error(news);
+      resolve(news);
     })
     .catch(err => reject(err));
 });
