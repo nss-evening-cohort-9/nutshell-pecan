@@ -7,10 +7,10 @@ import util from '../../helpers/util';
 const createNewEntry = (e) => {
   e.preventDefault();
   const newDiary = {
-    date: document.getElementById('entry-date'),
-    title: document.getElementById('entry-title'),
-    entry: document.getElementById('diary-text'),
-    imageUrl: document.getElementById('diary-image'),
+    date: document.getElementById('entry-date').value,
+    title: document.getElementById('entry-title').value,
+    entry: document.getElementById('diary-text').value,
+    imageUrl: document.getElementById('diary-image').value,
     uid: firebase.auth().currentUser.uid,
   };
   diaryData.addNewEntry(newDiary)
@@ -19,11 +19,12 @@ const createNewEntry = (e) => {
       document.getElementById('entry-title').value = '';
       document.getElementById('diary-text').value = '';
       document.getElementById('diary-image').value = '';
+      showWholeDiary(firebase.auth().currentUser.uid); // eslint-disable-line no-use-before-define
     })
     .catch(err => console.error('no added entry', err));
 };
 
-const newEntryButton = () => {
+const diaryEvents = () => {
   document.getElementById('post-new-diary').addEventListener('click', createNewEntry);
 };
 
@@ -44,7 +45,7 @@ const displayDiary = (diary) => {
     domString += '</div>';
   });
   util.printToDom('diary-entries', domString);
-  newEntryButton();
+  diaryEvents();
 };
 
 const showWholeDiary = () => {
