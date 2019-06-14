@@ -3,8 +3,8 @@ import apiKeys from '../apiKeys.json';
 
 const firebaseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getDiaryByUid = () => new Promise((resolve, reject) => {
-  axios.get(`${firebaseUrl}/diary.json`)
+const getDiaryByUid = uid => new Promise((resolve, reject) => {
+  axios.get(`${firebaseUrl}/diary.json?orderBy="uid"&equalTo="${uid}"`)
     .then((results) => {
       const diaryData = results.data;
       const diaryArray = [];
