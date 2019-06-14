@@ -16,7 +16,7 @@ const checkLoginStatus = () => {
       eventsDiv.classList.remove('hide');
       newsDiv.classList.remove('hide');
       diaryDiv.classList.remove('hide');
-      diary.showWholeDiary();
+      diary.showWholeDiary(firebase.auth().currentUser.uid);
     } else {
       authDiv.classList.remove('hide');
       logoutDiv.classList.add('hide');

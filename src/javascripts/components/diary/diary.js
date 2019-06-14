@@ -31,7 +31,7 @@ const diaryEvents = () => {
 const displayDiary = (diary) => {
   let domString = '';
   diary.forEach((entry) => {
-    domString += '<div class="card">';
+    domString += '<div class="card col-sm-3">';
     domString += `<h3 class="card-header">${entry.title}</h3>`;
     domString += '<div class="card-body">';
     domString += `<h5 class="card-subtitle" text-muted>${entry.date}</h5>`;
@@ -48,8 +48,8 @@ const displayDiary = (diary) => {
   diaryEvents();
 };
 
-const showWholeDiary = () => {
-  diaryData.getDiaryByUid()
+const showWholeDiary = (uid) => {
+  diaryData.getDiaryByUid(uid)
     .then((diary) => {
       displayDiary(diary);
     })
