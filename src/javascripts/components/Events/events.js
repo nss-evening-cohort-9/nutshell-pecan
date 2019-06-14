@@ -38,10 +38,6 @@ const addEvents = () => {
   for (let i = 0; i < deleteButtons.length; i += 1) {
     deleteButtons[i].addEventListener('click', deleteEvent);
   }
-  // const editButtons = document.getElementsByClassName('editButton');
-  // for (let i = 0; i < editButtons.length; i += 1) {
-  //   editButtons[i].addEventListener('click', editEvent);
-  // }
 };
 
 
