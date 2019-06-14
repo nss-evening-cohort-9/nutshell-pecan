@@ -4,25 +4,25 @@ import 'firebase/auth';
 import util from '../../helpers/util';
 import eventsData from '../../helpers/data/eventsData';
 
-const createNewEvent = (e) => {
-  e.preventDefault();
-  const newEvent = {
-    name: document.getElementById('name').value,
-    imageUrl: document.getElementById('Image').value,
-    date: document.getElementById('Date').value,
-    location: document.getElementById('Location').value,
-    uid: firebase.auth().currentUser.uid,
-  };
-  eventsData.addNewEvent(newEvent)
-    .then(() => {
-      document.getElementById('name').value = '';
-      document.getElementById('Image').value = '';
-      document.getElementById('Date').value = '';
-      document.getElementById('Location').value = '';
-      getEvents(firebase.auth().currentUser.uid); // eslint-disable-line no-use-before-define
-    })
-    .catch(err => console.error('no new events for you', err));
-};
+// const createNewEvent = (e) => {
+//   e.preventDefault();
+//   const newEvent = {
+//     name: document.getElementById('name').value,
+//     imageUrl: document.getElementById('Image').value,
+//     date: document.getElementById('Date').value,
+//     location: document.getElementById('Location').value,
+//     uid: firebase.auth().currentUser.uid,
+//   };
+//   eventsData.addNewEvent(newEvent)
+//     .then(() => {
+//       document.getElementById('name').value = '';
+//       document.getElementById('Image').value = '';
+//       document.getElementById('Date').value = '';
+//       document.getElementById('Location').value = '';
+//       getEvents(firebase.auth().currentUser.uid); // eslint-disable-line no-use-before-define
+//     })
+//     .catch(err => console.error('no new events for you', err));
+// };
 
 const deleteEvent = (e) => {
   const eventId = e.target.closest('.eventCard').id;
@@ -62,27 +62,6 @@ const eventStringBuilder = (events) => {
   util.printToDom('events-div', domString);
   addEvents();
 };
-
-// const showEvents = () => {
-//   let eventString = '';
-//   eventString += '<form>';
-//   eventString += '<div class="form-group">';
-//   eventString += '<label for="exampleInputName1">Event Name</label>';
-//   eventString += '<input type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Event Name">';
-//   eventString += '<small id="emailHelp" class="form-text text-muted">W</small>';
-//   eventString += '</div>';
-//   eventString += '<div class="form-group">';
-//   eventString += '<label for="exampleInputName1">Image</label>';
-//   eventString += '<input type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Image here">';
-//   eventString += '<small id="emailHelp" class="form-text text-muted">W</small>';
-//   eventString += '</div>';
-//   eventString += '<div class="form-group">';
-//   eventString += '<label class="form-check-label" for="exampleCheck1">Check me out</label>';
-//   eventString += '</div>';
-//   eventString += '<button type="submit" id="saveButton" class="btn btn-primary">Submit</button>';
-//   eventString += '</form>';
-//   util.printToDom('event', eventString);
-// };
 
 const getEvents = (uid) => {
   eventsData.getEventsByUid(uid)
