@@ -24,8 +24,20 @@ const createNewEntry = (e) => {
     .catch(err => console.error('no added entry', err));
 };
 
+const deleteDiaryEntry = (e) => {
+  e.preventDefault();
+  const entryId = e.target.id;
+  diaryData.deleteEntry(entryId)
+    .then(() => showWholeDiary(firebase.auth().currentUser.uid)) // eslint-disable-line no-use-before-define
+    .catch(err => console.error('nothing deleted', err));
+};
+
 const diaryEvents = () => {
   document.getElementById('post-new-diary').addEventListener('click', createNewEntry);
+  const deleteButton = document.getElementsByClassName('diary-delete');
+  for (let i = 0; i < deleteButton.length; i += 1) {
+    deleteButton[i].addEventListener('click', deleteDiaryEntry);
+  }
 };
 
 const displayDiary = (diary) => {
@@ -38,8 +50,8 @@ const displayDiary = (diary) => {
     domString += `<img id="diary-pic" src=${entry.imageUrl}>`;
     domString += `<div>${entry.entry}</div>`;
     domString += '<div>';
-    domString += '<button id="diary-edit">Edit</button>';
-    domString += '<button id="diary-delete">Delete</button>';
+    domString += '<button class="diary-edit">Edit</button>';
+    domString += '<button class="diary-delete">Delete</button>';
     domString += '</div>';
     domString += '</div>';
     domString += '</div>';
