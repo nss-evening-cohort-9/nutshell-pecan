@@ -4,25 +4,25 @@ import 'firebase/auth';
 import util from '../../helpers/util';
 import eventsData from '../../helpers/data/eventsData';
 
-// const createNewEvent = (e) => {
-//   e.preventDefault();
-//   const newEvent = {
-//     name: document.getElementById('name').value,
-//     imageUrl: document.getElementById('Image').value,
-//     date: document.getElementById('Date').value,
-//     location: document.getElementById('Location').value,
-//     uid: firebase.auth().currentUser.uid,
-//   };
-//   eventsData.addNewEvent(newEvent)
-//     .then(() => {
-//       document.getElementById('name').value = '';
-//       document.getElementById('Image').value = '';
-//       document.getElementById('Date').value = '';
-//       document.getElementById('Location').value = '';
-//       getEvents(firebase.auth().currentUser.uid); // eslint-disable-line no-use-before-define
-//     })
-//     .catch(err => console.error('no new events for you', err));
-// };
+const createNewEvent = (e) => {
+  e.preventDefault();
+  const newEvent = {
+    name: document.getElementById('name').value,
+    imageUrl: document.getElementById('image').value,
+    date: document.getElementById('date').value,
+    location: document.getElementById('location').value,
+    uid: firebase.auth().currentUser.uid,
+  };
+  eventsData.addNewEvent(newEvent)
+    .then(() => {
+      document.getElementById('name').value = '';
+      document.getElementById('image').value = '';
+      document.getElementById('date').value = '';
+      document.getElementById('location').value = '';
+      getEvents(firebase.auth().currentUser.uid); // eslint-disable-line no-use-before-define
+    })
+    .catch(err => console.error('no new events for you', err));
+};
 
 const deleteEvent = (e) => {
   const eventId = e.target.closest('.eventCard').id;
@@ -33,7 +33,7 @@ const deleteEvent = (e) => {
 };
 
 const addEvents = () => {
-//   document.getElementById('saveButton').addEventListener('click', createNewEvent);
+  document.getElementById('post-event').addEventListener('click', createNewEvent);
   const deleteButtons = document.getElementsByClassName('deleteButton');
   for (let i = 0; i < deleteButtons.length; i += 1) {
     deleteButtons[i].addEventListener('click', deleteEvent);
@@ -70,8 +70,6 @@ const getEvents = (uid) => {
     })
     .catch(err => console.error('no events here', err));
 };
-
-// const eventDiv = document.getElementById('events-div').addEventListener('click');
 
 
 export default { getEvents };
