@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/bootstrap";
+
+.events-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#event-pic {
+  height: 50px;
+  width: 50px;
+}

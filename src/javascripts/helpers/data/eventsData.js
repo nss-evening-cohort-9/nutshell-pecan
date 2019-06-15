@@ -6,8 +6,8 @@ const firebaseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const addNewEvent = eventsObject => axios.post(`${firebaseUrl}/events.json`, eventsObject);
 
-const getEventsByUid = () => new Promise((resolve, reject) => {
-  axios.get(`${firebaseUrl}/events.json`)
+const getEventsByUid = uid => new Promise((resolve, reject) => {
+  axios.get(`${firebaseUrl}/events.json?orderBy="uid"&equalTo="${uid}"`)
     .then((results) => {
       const eventsResults = results.data;
       const events = [];

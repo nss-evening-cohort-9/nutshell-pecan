@@ -1,12 +1,14 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import diary from '../../components/diary/diary';
+import events from '../../components/Events/events';
 
 const authDiv = document.getElementById('auth');
 const logoutDiv = document.getElementById('nav-button-logout');
 const eventsDiv = document.getElementById('events-div');
 const newsDiv = document.getElementById('news-div');
 const diaryDiv = document.getElementById('diary-div');
+
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -17,6 +19,7 @@ const checkLoginStatus = () => {
       newsDiv.classList.remove('hide');
       diaryDiv.classList.remove('hide');
       diary.showWholeDiary(user.uid);
+      events.getEvents(user.uid);
     } else {
       authDiv.classList.remove('hide');
       logoutDiv.classList.add('hide');
