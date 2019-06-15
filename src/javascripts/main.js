@@ -12,7 +12,7 @@ const init = () => {
   auth.authStringBuilder();
   logout.logoutEvent();
   authData.checkLoginStatus();
-  news.getNews();
+  news.navBarActivation();
 };
 
 init();
