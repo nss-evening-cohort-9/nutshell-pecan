@@ -3,8 +3,9 @@
         "eventName":"CMA Festival",
         "eventDate":"Thu, Jun 6, 2019 – Sun, Jun 9, 2019",
         "eventLocation":"Nissan Stadium, Nashville, TN",
-        "imageURl":"http://i.ebayimg.com/images/g/bZUAAOSwn9lXK5Jp/s-l1600.jpg",
-        "uid": "1234"
+        "imageURl":"https://fox17.com/resources/media/9a04a845-a68f-4f91-98c2-386697ca2b5b-large16x9_cmafest.JPG?1559144552668",
+        "uid": "1234",
+        "id": "events1"
     },
     
     "events2" : {
@@ -12,14 +13,16 @@
         "eventDate": "Tues, Oct 8, 2019 - Sun, Oct 13, 2019",
         "eventLocation": "Atlanta, GA",
         "imageUrl": "https://static.hiphopdx.com/2016/09/2016-A3C-Save-The-Date-900x615.jpeg",
-        "uid": "5678"
+        "uid": "5678",
+        "id": "events2"
     },
 
     "events3" : {
         "eventName": "Bonnaroo Music and Arts Festival",
         "eventDate": "Thur, Jun 13, 2019 - Sun, Jun 16, 2019",
         "eventLocation": "Manchester, TN",
-        "imageUrl": "https://dk5gvgp9n495wcv3tirfvl85-wpengine.netdna-ssl.com/wp-content/uploads/2019/04/46197206_10155817728275906_7921133052149891072_n-700x366.jpg",
-        "uid": "6428"
+        "imageUrl": "https://www.bonnaroo.com/wp-www-bonnaroo-com/wp/wp-content/uploads/2019/01/b19_fb-share-0242d14b.jpg",
+        "uid": "6428",
+        "id": "events3"
     }
 }
