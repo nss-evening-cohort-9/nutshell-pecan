@@ -7,10 +7,10 @@ import eventsData from '../../helpers/data/eventsData';
 const createNewEvent = (e) => {
   e.preventDefault();
   const newEvent = {
-    name: document.getElementById('name').value,
+    eventName: document.getElementById('name').value,
     imageUrl: document.getElementById('image').value,
-    date: document.getElementById('date').value,
-    location: document.getElementById('location').value,
+    eventDate: document.getElementById('date').value,
+    eventLocation: document.getElementById('location').value,
     uid: firebase.auth().currentUser.uid,
   };
   eventsData.addNewEvent(newEvent)
@@ -40,24 +40,50 @@ const addEvents = () => {
   }
 };
 
+const editEvent = (e) => {
+  const getCurrentId = e.target.id;
+  console.error(getCurrentId);
+  document.getElementById('newEventForm').classList.add('hide');
+  const editString = `
+<form>
+      <div>
+        <label>Date</label>
+        <input type="text" id="date">
+        <label>Event Name</label>
+        <input type="text" id="name">
+        <label>Location</label>
+        <input type="text" id="location">
+        <label>Image</label>
+        <input id="image">
+        <button id="post-event">Update Event</button>
+      </div>
+    </form>`;
+  util.printToDom('editEvent', editString);
+};
+
+const button = () => {
+  document.getElementById('clicks').addEventListener('click', editEvent);
+};
 
 const eventStringBuilder = (events) => {
-  let domString = '';
+  let domString = ' ';
   events.forEach((event) => {
-    domString += `<div class="card eventCard" id=${event.id} style="width: 18rem;">`;
+    domString += `<div class="card eventCard m-2" id=${event.id} style="width: 18rem;">`;
     domString += `<h5 class="card-title">${event.eventName}</h5>`;
-    domString += `<img class="card-img-top" src="${event.imageUrl}" alt="Card image cap">`;
+    domString += `<img class="card-img-top" id="event-pic" src="${event.imageUrl}" alt="Card image cap" />`;
     domString += `<p class="card-text">${event.eventDate}</p>`;
     domString += `<p class="card-text"> Locations:${event.eventLocation}</p>`;
     domString += '<button type="button" id="clicks" class="btn btn-light">edit</button>';
     domString += '<button type="button" id="click" class="btn btn-light deleteButton">delete</button>';
     domString += '</div>';
-    domString += '</div>';
+    // domString += '</div>';
   });
 
-  util.printToDom('events-div', domString);
+  util.printToDom('event', domString);
+  button();
   addEvents();
 };
+
 
 const getEvents = (uid) => {
   eventsData.getEventsByUid(uid)
