@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pecan Hub</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
-      <h2 class="navbar-brand">Pecan Hub</h2>
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+    <h2 class="navbar-brand">Pecan Hub</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a id="nav-button-logout" class="nav-link hide">Log Out</a>
-            </li>
-          </ul>
-        </div>
-    </nav>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a id="nav-button-logout" class="nav-link hide">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <div id="auth"></div>
-  <div id="event"></div>
   <div id="events-div" class="home-page hide">
-     <h3>Pecan Events</h3>
+    <h3>Pecan Events</h3>
     <form>
       <div>
-        <label>Date</label>
-        <input type="text" id="date" placeholder="01-01-2019">
-        <label>Event Name</label>
-        <input type="text" id="name" placeholder="Enter name">
-        <label>Location</label>
-        <input type="text" id="location" placeholder="Enter location">
-        <label>Image</label>
-        <input id="image" placeholder="Link to your image">
-        <button id="post-event">Post Event</button>
-      <div id="events-div" class ="row">
-      </div>
+        <div id="newEventForm">
+          <label>Date</label>
+          <input type="text" id="date" placeholder="01-01-2019">
+          <label>Event Name</label>
+          <input type="text" id="name" placeholder="Enter name">
+          <label>Location</label>
+          <input type="text" id="location" placeholder="Enter location">
+          <label>Image</label>
+          <input id="image" placeholder="Link to your image">
+          <button id="post-event">Post Event</button>
+        </div>
+        <div id="editEvent" class="row"></div>
+        <div id="event" class="row"></div>
       </div>
     </form>
   </div>
   <div id="news-div" class="home-page hide">News Placeholder</div>
-<<<<<<< HEAD
   <div id="diary-div" class="home-page hide">
     <h3>Pecan Diary</h3>
     <form>
@@ -55,14 +58,11 @@
         <label>Image</label>
         <input id="diary-image" placeholder="Link to your image">
         <button id="post-new-diary">Post New Entry</button>
-      <div id="diary-entries" class ="row">
-      </div>
+        <div id="diary-entries" class="row">
+        </div>
       </div>
     </form>
-=======
-  <div id="diary-div" class="home-page hide">Diary Placeholder</div>
-  <div id="new-friend" class="hide">
->>>>>>> cf-eventsjs
   </div>
 </body>
+
 </html>
