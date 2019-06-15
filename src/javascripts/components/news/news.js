@@ -107,6 +107,7 @@ const domStringBuilder = (news) => {
 
 const getNews = (uid) => {
   document.getElementById('news-div').classList.remove('hide');
+  document.getElementById('newsForm').classList.remove('hide');
   newsData.getNewsByUid(uid)
     .then((news) => {
       domStringBuilder(news);
