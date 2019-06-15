@@ -41,7 +41,7 @@ const addEvents = () => {
 };
 
 const editEvent = (e) => {
-  const getCurrentId = e.target.id;
+  const getCurrentId = e.target.closest('.eventCard').id;
   console.error(getCurrentId);
   document.getElementById('newEventForm').classList.add('hide');
   const editString = `
@@ -62,7 +62,10 @@ const editEvent = (e) => {
 };
 
 const button = () => {
-  document.getElementById('clicks').addEventListener('click', editEvent);
+  const editButtons = document.getElementsByClassName('editButton');
+  for (let i = 0; i < editButtons.length; i += 1) {
+    editButtons[i].addEventListener('click', editEvent);
+  }
 };
 
 const eventStringBuilder = (events) => {
@@ -73,7 +76,7 @@ const eventStringBuilder = (events) => {
     domString += `<img class="card-img-top" id="event-pic" src="${event.imageUrl}" alt="Card image cap" />`;
     domString += `<p class="card-text">${event.eventDate}</p>`;
     domString += `<p class="card-text"> Locations:${event.eventLocation}</p>`;
-    domString += '<button type="button" id="clicks" class="btn btn-light">edit</button>';
+    domString += '<button type="button" id="clicks" class="btn btn-light editButton">edit</button>';
     domString += '<button type="button" id="click" class="btn btn-light deleteButton">delete</button>';
     domString += '</div>';
     // domString += '</div>';
