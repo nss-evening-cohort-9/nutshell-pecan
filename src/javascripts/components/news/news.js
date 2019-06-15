@@ -101,13 +101,21 @@ const domStringBuilder = (news) => {
     domString += '</div>';
   });
   domString += '</div>';
+  domString += '<form id="newsForm" class="">News Title:<br>';
+  domString += '<input type="text" id="newsTitleForm"><br>';
+  domString += 'Image URL:<br>';
+  domString += '<input type="text" id="imageUrlForm"><br>';
+  domString += 'Synopsis:<br>';
+  domString += '<input type="text" id="synopsisForm"><br>';
+  domString += '<button id="saveButton" type="button" value="Save" class="">Save</button>';
+  domString += '<button id="saveEditButton" type="button" value="Save" class="">Save Edit</button>';
+  domString += '</form>';
   util.printToDom('news-div', domString);
   addEvents();
 };
 
 const getNews = (uid) => {
   document.getElementById('news-div').classList.remove('hide');
-  document.getElementById('newsForm').classList.remove('hide');
   newsData.getNewsByUid(uid)
     .then((news) => {
       domStringBuilder(news);
@@ -116,9 +124,9 @@ const getNews = (uid) => {
 };
 
 const navBarActivation = () => {
-  document.getElementById('nav-button-news').addEventListener('click', getNews);
   document.getElementById('events-div').classList.add('hide');
   document.getElementById('diary-div').classList.add('hide');
+  document.getElementById('nav-button-news').addEventListener('click', getNews);
 };
 
 export default { navBarActivation };
