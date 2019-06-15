@@ -5,7 +5,8 @@ import util from '../../helpers/util';
 
 const signMeIn = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider);
+  const user = firebase.auth().signInWithPopup(provider);
+  console.error(user);
 };
 
 const authStringBuilder = () => {
